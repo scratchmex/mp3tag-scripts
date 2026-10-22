@@ -1,0 +1,6 @@
+[Name]=SoundCloud WS V2.28 by Jordi & Claude
+[SearchBy]=SoundCloud URL||||%s
+[Include]=SoundCloud.inc
+
+[IndexUrl]=
+[AlbumUrl]=%s
