@@ -6,13 +6,21 @@
 [Name]=Bandcamp
 [BasedOn]=bandcamp.com
 [AlbumUrl]=%s
-[WordSeparator]=%20
-[SearchBy]=Bandcamp URL||||%s
-[Encoding]=utf-8
+[IndexUrl]=https://bandcamp.com/search?q=%s
+[WordSeparator]=+
+[IndexFormat]=% TITLE %|% ARTIST %|%_URL%
+[Encoding]=url-utf-8
 [Settings]=Bandcamp#Settings.settings
 [MinAppVersionWin]=3.22
 [MinAppVersionMac]=1.8.6
 [Version]=0.4.4
+
+[ParserScriptIndex]=...
+JoinUntil "</html>"
+RegexpReplace "^.*?(<li class=\"searchresult[^>]*>.*</li>).*$" "$1"
+RegexpReplace "<li class=\"searchresult[^>]*>.*?<div class=\"heading\">\s*<a href=\"([^\"]+)\"[^>]*>\s*(.*?)\s*</a>.*?<div class=\"subhead\">.*?\bby\s+([^<]*?\S)\s*</div>.*?</li>" "$2|$3|$1\n"
+RegexpReplace "<.*" ""
+SayRest
 
 [ParserScriptAlbum]=...
 # ###################################################################

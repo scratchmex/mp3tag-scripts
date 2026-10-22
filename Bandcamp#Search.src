@@ -1,0 +1,3 @@
+[Name]=Bandcamp
+[SearchBy]=Search by Artist||%artist%||%s||Title||%title%||+%s
+[Include]=Bandcamp#URL.src
