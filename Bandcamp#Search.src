@@ -1,3 +1,13 @@
 [Name]=Bandcamp
-[SearchBy]=Search by Artist||%artist%||%s||Title||%title%||+%s
-[Include]=Bandcamp#URL.src
+[SearchBy]=Search||%artist% %title%||%s
+[IndexUrl]=https://bandcamp.com/search?q=%s
+[WordSeparator]=+
+[IndexFormat]=% TITLE %|% ARTIST %|%_URL%
+[Encoding]=url-utf-8
+[ParserScriptIndex]=...
+JoinUntil "</html>"
+RegexpReplace "^.*?(<li class=\"searchresult[^>]*>.*</li>).*$" "$1"
+RegexpReplace "<li class=\"searchresult[^>]*>.*?<div class=\"heading\">\s*<a href=\"([^\"]+)\"[^>]*>\s*(.*?)\s*</a>.*?<div class=\"subhead\">.*?\bby\s+([^<]*?\S)\s*</div>.*?</li>" "$2|$3|$1\n"
+RegexpReplace "<.*" ""
+SayRest
+[Include]=Bandcamp.inc

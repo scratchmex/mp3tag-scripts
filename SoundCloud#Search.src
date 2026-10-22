@@ -1,2 +1,2 @@
-[SearchBy]=Search by Artist||%artist%||%s||Title||%title%||+%s
+[SearchBy]=Search||%artist% %title%||%s
 [Include]=SoundCloud.inc
